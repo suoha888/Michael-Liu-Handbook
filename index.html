@@ -32210,52 +32210,111 @@ Lam：目前看到了10个台子，18个吉祥物，算上大小写和中文。�
             <button id="btnLoadMoreArchive" class="btn-load-more" onclick="loadMoreArchive()" style="display: none;">加载更多推文 ↓</button>
         </section>
 
-        <!-- 全量数据完全免费下载中心 -->
+        <!-- 全量与精选数据完全免费开源下载中心 -->
         <section class="download-center" id="download-section">
             <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-                <h2 class="archive-title" style="margin-bottom: 0;">全量原始数据完全免费下载中心</h2>
-                <span class="hero-pill hero-pill-green" style="font-size: 13px;">✓ 100% 免费 · 完全开源 · 离线可用</span>
+                <div>
+                    <h2 class="archive-title" style="margin-bottom: 4px;">数据完全免费开源下载中心</h2>
+                    <p style="font-size: 13.5px; color: var(--text-muted); margin: 0;">提供「核心精选研报库」与「全量历史归档库」两套独立数据集，支持标准 JSON、带 BOM CSV 与 Markdown 专著</p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                    <span class="hero-pill hero-pill-green" style="font-size: 12.5px;">✓ 100% 免费开源</span>
+                    <span class="hero-pill" style="font-size: 12.5px; background: #FEF3C7; color: #92400E; border: 1px solid #F59E0B;">⭐ 核心精选 1,055 篇</span>
+                    <span class="hero-pill hero-pill-amber" style="font-size: 12.5px;">🌐 全量历史 5,344 篇</span>
+                </div>
             </div>
-            <p class="archive-desc" style="margin-top: 10px;">
-                知识应该属于所有人。本典籍所有清洗数据、分类标签与方法论总结均完全免费开源，提供标准的 JSON 与带 BOM 的 CSV 格式，任何人无需付费、无需授权即可完全下载使用。
+            <p class="archive-desc" style="margin-top: 14px;">
+                知识应该属于所有人。为了满足不同层级的投研需求，本典籍将数据结构清晰划分为两大独立分级：<strong>【⭐ 核心精选研报库 (1,055 篇)】</strong>（均赞 172+、长文实战深度复盘、包含全部 729 张实盘图表关联，100% 极高密度干货，去噪脱水，专为 AI Agent 知识库投喂与精读设计）与 <strong>【🌐 全量历史数据库 (5,344 篇)】</strong>（麦总自 2021 年起全部公开推文全景无损留存，供量化回测与历史全景归档）。任何人均可完全免费、免登录一键下载使用。
             </p>
-            <div class="download-cards-grid">
-                <div class="download-card">
+            
+            <div class="download-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <!-- 卡片 1: 核心精选研报库 JSON -->
+                <div class="download-card" style="border-top: 3px solid #D97706; background: linear-gradient(180deg, #FFFDF8 0%, #FFFFFF 100%);">
                     <div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-size: 11px; font-weight: 800; background: #FEF3C7; color: #92400E; padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(180,83,9,0.2);">⭐ 研报极简脱水版</span>
+                            <span style="font-size: 11.5px; color: var(--text-muted); font-weight: 600;">1,055 篇精选</span>
+                        </div>
                         <div class="dc-title">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                            <span>JSON 全量数据库</span>
+                            <span>核心精选研报 (JSON)</span>
                         </div>
-                        <p class="dc-desc">包含 5,344 条推文的推文 ID、发布时间、纯文本、互动统计、媒体地址与精选标签（3.8 MB，5,344 条完整记录）。</p>
+                        <p class="dc-desc">严格筛选的 1,055 篇顶级深度长文与实战研报，均赞 172+，涵盖全部 729 张实盘图表本地关联，去噪脱水，专为 AI 投喂设计（763 KB）。</p>
                     </div>
-                    <a href="data/michael_liu_tweets.json" download="michael_liu_tweets.json" class="dc-btn">
-                        <span>免费下载 JSON 库 (3.8 MB)</span>
+                    <a href="data/michael_liu_featured_tweets.json" download="michael_liu_featured_tweets.json" class="dc-btn" style="background: #B45309;">
+                        <span>免费下载精选 JSON (763 KB)</span>
                     </a>
                 </div>
 
-                <div class="download-card">
+                <!-- 卡片 2: 核心精选表格 CSV -->
+                <div class="download-card" style="border-top: 3px solid #D97706; background: linear-gradient(180deg, #FFFDF8 0%, #FFFFFF 100%);">
                     <div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-size: 11px; font-weight: 800; background: #FEF3C7; color: #92400E; padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(180,83,9,0.2);">⭐ Excel 零乱码直开</span>
+                            <span style="font-size: 11.5px; color: var(--text-muted); font-weight: 600;">1,055 行数据</span>
+                        </div>
                         <div class="dc-title">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="8" y1="13" x2="16" y2="13"></line><line x1="8" y1="17" x2="16" y2="17"></line></svg>
-                            <span>CSV 电子表格格式</span>
+                            <span>核心精选表格 (CSV)</span>
                         </div>
-                        <p class="dc-desc">采用 UTF-8-SIG 带 BOM 编码生成，Excel、Numbers 直接双击打开绝无任何中文乱码（2.2 MB，5,345 行）。</p>
+                        <p class="dc-desc">UTF-8-SIG 带 BOM 编码，Excel、Numbers 双击直开绝无乱码。包含互动数据、配图统计与原文直达链接（436 KB，1,055 行）。</p>
                     </div>
-                    <a href="data/michael_liu_tweets.csv" download="michael_liu_tweets.csv" class="dc-btn">
-                        <span>免费下载 CSV 表格 (2.2 MB)</span>
+                    <a href="data/michael_liu_featured_tweets.csv" download="michael_liu_featured_tweets.csv" class="dc-btn" style="background: #B45309;">
+                        <span>免费下载精选 CSV (436 KB)</span>
                     </a>
                 </div>
 
-                <div class="download-card">
+                <!-- 卡片 3: 全量历史推文 JSON -->
+                <div class="download-card" style="border-top: 3px solid #64748B;">
                     <div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-size: 11px; font-weight: 800; background: #F1F5F9; color: #475569; padding: 2px 7px; border-radius: 4px; border: 1px solid #CBD5E1;">🌐 历年全景归档</span>
+                            <span style="font-size: 11.5px; color: var(--text-muted); font-weight: 600;">5,344 条全量</span>
+                        </div>
+                        <div class="dc-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            <span>全量历史数据库 (JSON)</span>
+                        </div>
+                        <p class="dc-desc">麦总历年 5,344 条公开推文完整留存，包含即时盘面随笔、短评、互动统计与媒体地址，适合历史回溯研究（2.9 MB，5,344 条）。</p>
+                    </div>
+                    <a href="data/michael_liu_tweets.json" download="michael_liu_tweets.json" class="dc-btn" style="background: #475569;">
+                        <span>下载全量 JSON (2.9 MB)</span>
+                    </a>
+                </div>
+
+                <!-- 卡片 4: 全量历史表格 CSV -->
+                <div class="download-card" style="border-top: 3px solid #64748B;">
+                    <div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-size: 11px; font-weight: 800; background: #F1F5F9; color: #475569; padding: 2px 7px; border-radius: 4px; border: 1px solid #CBD5E1;">🌐 全局量化表格</span>
+                            <span style="font-size: 11.5px; color: var(--text-muted); font-weight: 600;">5,345 行完整</span>
+                        </div>
+                        <div class="dc-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="8" y1="13" x2="16" y2="13"></line><line x1="8" y1="17" x2="16" y2="17"></line></svg>
+                            <span>全量历史表格 (CSV)</span>
+                        </div>
+                        <p class="dc-desc">包含全量 5,344 条推文的 UTF-8-SIG 带 BOM 电子表格，支持点赞/转推排序、时间筛选与关键词全局检索（1.3 MB，5,345 行）。</p>
+                    </div>
+                    <a href="data/michael_liu_tweets.csv" download="michael_liu_tweets.csv" class="dc-btn" style="background: #475569;">
+                        <span>下载全量 CSV (1.3 MB)</span>
+                    </a>
+                </div>
+
+                <!-- 卡片 5: 实战方法论精要 MD -->
+                <div class="download-card" style="border-top: 3px solid #059669;">
+                    <div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-size: 11px; font-weight: 800; background: #D1FAE5; color: #065F46; padding: 2px 7px; border-radius: 4px; border: 1px solid #A7F3D0;">📖 研报级方法论</span>
+                            <span style="font-size: 11.5px; color: var(--text-muted); font-weight: 600;">24 大课题</span>
+                        </div>
                         <div class="dc-title">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                            <span>实战方法论精要 (MD)</span>
+                            <span>实战方法论专著 (MD)</span>
                         </div>
-                        <p class="dc-desc">适合本地 Obsidian、Notion 导入与 AI 喂养的 Markdown 研报级实战手册文档。</p>
+                        <p class="dc-desc">系统解构 6 大卷宗、24 核心课题的沉淀专著，排版严密，极适合本地 Obsidian、Notion 导入与大模型知识库（75 KB）。</p>
                     </div>
-                    <a href="docs/Michael_Liu_Trading_Methodology.md" download="Michael_Liu_Trading_Methodology.md" class="dc-btn">
-                        <span>免费下载 Markdown 手册</span>
+                    <a href="docs/Michael_Liu_Trading_Methodology.md" download="Michael_Liu_Trading_Methodology.md" class="dc-btn" style="background: #059669;">
+                        <span>免费下载 Markdown 专著</span>
                     </a>
                 </div>
             </div>

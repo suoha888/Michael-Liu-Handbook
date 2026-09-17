@@ -633,9 +633,9 @@ body { font-family: var(--font-sans); color: var(--text-main); background-color:
     position: fixed;
     bottom: 84px;
     right: 24px;
-    width: 420px;
+    width: 460px;
     max-width: calc(100vw - 32px);
-    height: 590px;
+    height: 640px;
     max-height: calc(100vh - 110px);
     background: #FFFFFF;
     border: 1px solid var(--border-dark, #D8CDBC);
@@ -777,11 +777,11 @@ body { font-family: var(--font-sans); color: var(--text-main); background-color:
     justify-content: flex-end;
 }
 .cj-msg-bubble {
-    max-width: 85%;
-    padding: 10px 14px;
+    max-width: 88%;
+    padding: 12px 15px;
     border-radius: 12px;
     font-size: 13.5px;
-    line-height: 1.65;
+    line-height: 1.68;
     word-break: break-word;
 }
 .cj-msg-row.user .cj-msg-bubble {
@@ -790,34 +790,178 @@ body { font-family: var(--font-sans); color: var(--text-main); background-color:
     border-bottom-right-radius: 2px;
 }
 .cj-msg-row.assistant .cj-msg-bubble {
+    max-width: 94%;
+    padding: 14px 18px;
     background: #FFFFFF;
     color: var(--text-main, #1F1B16);
-    border: 1px solid var(--border-main, #EAE2D2);
+    border: 1px solid #DFD6C5;
     border-bottom-left-radius: 2px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 14px rgba(60, 45, 30, 0.05);
+}
+
+/* AI 精美排版与模块化视觉标签体系 */
+.ai-section-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 800;
+    color: #92400E;
+    background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+    padding: 3px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    margin: 10px 0 6px 0;
+    letter-spacing: 0.02em;
+    box-shadow: 0 1px 3px rgba(180, 83, 9, 0.08);
+}
+.ai-section-badge:first-child {
+    margin-top: 0;
+}
+.ai-heading {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 800;
+    color: #1F1B16;
+    margin: 12px 0 6px 0;
+    font-family: var(--font-serif, "Noto Serif SC", serif);
+}
+.ai-h1, .ai-h2 {
+    font-size: 14.5px;
+    border-bottom: 1.5px solid #EAE2D2;
+    padding-bottom: 4px;
+    color: #78350F;
+}
+.ai-h3, .ai-h4 {
+    font-size: 13.5px;
+    color: #1F1B16;
+}
+.ai-heading-pill {
+    display: inline-block;
+    width: 4px;
+    height: 14px;
+    background: #B45309;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+.ai-quote {
+    margin: 8px 0;
+    padding: 8px 12px;
+    background: #F7F3EA;
+    border-left: 3px solid #B45309;
+    border-radius: 0 6px 6px 0;
+    color: #544D42;
+    font-size: 12.5px;
+    line-height: 1.6;
+    display: flex;
+    gap: 8px;
+}
+.ai-quote-content {
+    flex: 1;
+}
+.ai-num-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 6px 0;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #383229;
+}
+.ai-num-dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: #FEF3C7;
+    color: #92400E;
+    border: 1px solid rgba(180, 83, 9, 0.35);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.ai-num-text {
+    flex: 1;
+}
+.ai-bullet-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 5px 0;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #383229;
+}
+.ai-bullet-icon {
+    color: #B45309;
+    font-size: 9px;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+.ai-bullet-text {
+    flex: 1;
+}
+.ai-paragraph {
+    margin: 0 0 6px 0;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #2D251D;
+}
+.ai-paragraph:last-child {
+    margin-bottom: 0;
+}
+.ai-line-gap {
+    height: 6px;
+}
+.ai-hr {
+    border: none;
+    border-top: 1px dashed #D8CDBC;
+    margin: 10px 0;
+}
+.ai-pre {
+    background: #25201A;
+    color: #F8F4EC;
+    padding: 10px 12px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 12px;
+    margin: 8px 0;
+    border: 1px solid #3D352B;
+}
+.ai-code {
+    background: #F2ECE0;
+    color: #92400E;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: var(--font-mono, monospace);
+    font-size: 12px;
+    border: 1px solid #E2D9C8;
 }
 
 .cj-ai-topic-link {
     display: inline-flex;
     align-items: center;
-    gap: 3px;
+    gap: 4px;
     background: #FEF3C7;
     color: #92400E;
     font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 4px;
-    border: 1px solid rgba(180, 83, 9, 0.28);
+    padding: 3px 8px;
+    border-radius: 5px;
+    border: 1px solid rgba(180, 83, 9, 0.35);
     text-decoration: none;
-    margin: 2px 2px;
+    margin: 4px 2px;
     transition: all 0.15s;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 12.5px;
 }
 .cj-ai-topic-link:hover {
     background: #FDE68A;
     border-color: #B45309;
     color: #78350F;
-    box-shadow: 0 2px 6px rgba(180, 83, 9, 0.15);
+    box-shadow: 0 2px 6px rgba(180, 83, 9, 0.2);
     transform: translateY(-1px);
 }
 .cj-ai-ext-link {
@@ -32173,8 +32317,14 @@ Lam：目前看到了10个台子，18个吉祥物，算上大小写和中文。�
     <div class="cj-ai-body" id="cjAiBody">
         <div class="cj-msg-row assistant">
             <div class="cj-msg-bubble">
-                老铁你好！我是《憨厚的麦总 实战交易与周期投资全书》的原生内置 AI 导师。已全面通读麦总历年 5,344 篇实操推文与 24 个硬核课题。<br><br>
-无论问宏观大势、二级实战、Meme 盘面、庄家手法、美股与加密跨市场切换还是仓位纪律，问什么答什么，只讲硬逻辑与执行动作。你可以直接提问，或点击下方高频必问：
+                <div class="ai-section-badge">🤖 麦总实战 AI 导师就绪</div>
+                <p class="ai-paragraph">老铁你好！我是《憨厚的麦总 实战交易与周期投资全书》的原生内置 AI 导师。已全景灌顶麦总历年 <strong>5,344 篇实操原推</strong>、<strong>729 张实盘图表</strong> 与全书 <strong>6 大卷 24 个硬核课题</strong>。</p>
+                <div class="ai-line-gap"></div>
+                <div class="ai-quote">
+                    <div class="ai-quote-content">“二级堑壕战的本质是流动性边界与筹码博弈，没有容错率的重仓是一切爆仓的根源。”</div>
+                </div>
+                <div class="ai-line-gap"></div>
+                <p class="ai-paragraph">无论问宏观逃顶、降息剧本、美股合力、二级山寨、Meme 盘面还是仓位纪律，<strong>正面必答，精细排版，讲透逻辑</strong>。直接输入你的问题，或点击下方高频实战必问：</p>
             </div>
         </div>
 
@@ -32494,8 +32644,8 @@ const CJ_AI_CONFIG = {
     apiUrl: 'https://api.b.ai/v1/chat/completions',
     model: 'qwen3.8-flash',
     enable_thinking: false,
-    temperature: 0.2,
-    maxTokens: 450,
+    temperature: 0.25,
+    maxTokens: 1000,
     keys: [
         'sk-1qe8i01yxfpxogbhq36ch2nk8codwxyo',
         'sk-1qebq6c0h27e3s4ebbkdgpbjs8pitrbh',
@@ -32503,22 +32653,55 @@ const CJ_AI_CONFIG = {
         'sk-1qehjumjalyrqqay89phhlelreus419n',
         'sk-19oodyqpo3starzquk7zbx3tyggrl4xw'
     ],
-    systemPrompt: `你是推特顶尖交易导师与周期研报专家【憨厚的麦总】（@Michael_Liu93）的 AI 实战策略助手。基于麦总历年 5,344 篇实盘推文与《实战交易与周期投资全书》6大卷 24 个硬核课题知识体系构建。
+    systemPrompt: `你是推特顶尖交易导师与周期研报专家【憨厚的麦总】（@Michael_Liu93）的原生内置 AI 实战策略助手。基于麦总历年 5,344 篇实操推文与《实战交易与周期投资全书》6大卷 24 个硬核课题知识体系构建。
 
 【核心使命与回答原则】：
-1. 【来者不拒，正面必答】：无论用户问宏观周期、降息走势、美股合力、二级山寨、Meme PVP/庄盘还是仓位风控，都必须正面给出清晰、深刻的解答，严禁拒绝回答，严禁套话空话；只要涉及麦总推特论点与交易哲学，正面推导解答。
-2. 【智能导读，自然联动本站】：如果用户问的问题在当前网站手册中有对应精讲课题，在给出核心解答后，文末自然建议用户查阅对应章节卡片，格式必须为：[第 XX 课题：课题名](#t-XX)；若是泛化问题直接给答案，严禁强行贴不相关的链接。
-3. 【极简短小，问什么答什么】：严禁开场寒暄，第一句直接出核心答案；篇幅严格控制在 150~280 字左右，短小精悍，直击要害；严禁输出任何 # 标题符号；严禁输出 LaTeX $ 符号（美股代码直接写如 NVDA）；只用最简洁段落或 1. 2. 序号。
-4. 【系统领读模式】：若用户请求“导师领读”、“通读全书”或“规划学习路线”，请给出清晰的6步阶梯进阶规划，并推荐用户从 [第 01 课题：真实暴利的残酷真相](#t-01) 开始阅读。
+1. 【来者不拒，正面必答】：无论用户询问宏观周期、逃顶信号、美股合力、二级山寨波段、Meme PVP/庄盘打法还是仓位风控，都必须正面给出深刻、透彻、有实操指导意义的专业解答，严禁拒绝回答，严禁废话套话。
+2. 【篇幅充实详实，杜绝短小扁平】：
+   - 篇幅必须充实饱满，严格控制在 350~550 字左右（展开讲透，比常规短答丰富全面一倍左右）；
+   - 拒绝只有一两句话的干瘪回答，必须包含：底层机制逻辑 + 实操执行细则 + 风控与仓位防线。
+3. 【极度精美模块化排版（重要！）】：
+   严禁输出未经排版的一大坨纯文本！回答必须严格采用以下五段式优雅结构排版：
 
-【手册核心课题导航映射库（问到对应课题时推荐跳转）】：
+   📌 **【核心结论】**
+   （第一句话直击问题本质与底牌答案，开门见山）
+
+   🔍 **【底层机制推演】**
+   （拆解华尔街流动性大势、主力控盘手法、期现多空收割逻辑或存量博弈真相，讲清“为什么”）
+
+   ⚡ **【实操执行法则】**
+   （给出 2~3 条具体且可执行的落地操作纪律，必须使用 1. 2. 3. 序号，配合关键术语加粗）
+   1. **进出场标准**：...
+   2. **仓位与赔率**：...
+   3. **止盈止损线**：...
+
+   🛡️ **【风控与避坑铁律】**
+   （指出散户最致命的心态陷阱或高频亏损操作，使用 > 引用块总结核心警示金句）
+   > 例如：没有容错率的重仓是一切爆仓的根源。
+
+   👉 **【推荐关联课题】**
+   （如果当前全书有对应课题，文末必须附带课题跳转链接，格式：[第 XX 课题：课题名](#t-XX)）
+
+4. 【课题导航跳转规范】：
+   在推荐相关课题时，严格使用 [第 XX 课题：课题名](#t-XX) 格式。例如：[第 13 课题：冲 Meme 前的第一灵魂质问](#t-13) 或 [第 05 课题：周期顶部的通用信号](#t-05)。严禁输出 LaTeX $ 符号，美股代码一律直接书写（如 NVDA, TSM）。
+
+【系统领读路线（当用户问通读全书/学习路线时）】：
+若用户请求“导师领读”、“通读全书”或“规划学习路线”，按以下6阶通关路线排版输出：
+1. **心智觉醒**：破除带单依赖与一级造富幻觉，直击 [第 01 课题：真实暴利的残酷真相](#t-01)；
+2. **宏观周期**：读懂存储、贵金属与 BTC/ETH 见顶密码，必修 [第 05 课题：周期顶部的通用信号](#t-05)；
+3. **跨市场战法**：搞懂美股 90% 合力 vs 币圈 90% 博弈，精读 [第 09 课题：思维模式的物理切换](#t-09)；
+4. **Meme 堑壕实操**：分清纯 PVP 盘与庄盘吸血模型，吃透 [第 13 课题：冲 Meme 前的第一灵魂质问](#t-13)；
+5. **二级与合约防线**：掌握 10x 容错体系与期现对冲，牢记 [第 17 课题：仓位管理的生死防线](#t-17)；
+6. **信息源与工作流**：搭建一手推特投研护城河，践行 [第 21 课题：顶级一手信息源搭建](#t-21)。
+
+【手册核心 24 个课题导航映射库】：
 - [第 01 课题：真实暴利的残酷真相](#t-01)：打破一级造富叙事幻觉，唯有高流动性二级堑壕战才是个人逆袭主战场
 - [第 02 课题：带单收割与信息陷阱](#t-02)：警惕“老师带单”与公域接盘骗局，一手投研护城河不可替代
 - [第 03 课题：沉淀本金与熊市积累](#t-03)：熊市不亏就是大赚，保留生息本金等待流动性洪水破堤
 - [第 04 课题：构建个人交易系统](#t-04)：从盲目追涨到规则驱动：止损、仓位、一手信息源与复盘闭环
 - [第 05 课题：周期顶部的通用信号](#t-05)：为什么存储芯片、大宗贵金属与 BTC/ETH 大顶的逻辑如出一辙？
 - [第 06 课题：降息周期的剧本与陷阱](#t-06)：买在预期前夕，清在靴子落地：美联储降息周期的资金流动路径
-- [第 07 课题：大趋势破位的铁律](#t-07)：为什么破位资产上方全是套劳盘，宁逢高空绝不接飞刀？
+- [第 07 课题：大趋势破位的铁律](#t-07)：为什么破位资产上方全是套牢盘，宁逢高空绝不接飞刀？
 - [第 08 课题：逃顶心法与落袋为安](#t-08)：宁可少赚最后的鱼尾泡沫，也绝不在流动性踩踏时成为买单者
 - [第 09 课题：思维模式的物理切换](#t-09)：美股 90% 合力视角 vs 币圈 90% 博弈视角，绝不能用同一套脑袋做决策
 - [第 10 课题：美股硬核科技产业链研报](#t-10)：NVDA、TSM、光通信与半导体：看懂华尔街真金白银的基本面合力
@@ -32538,7 +32721,7 @@ const CJ_AI_CONFIG = {
 - [第 24 课题：在市场活下去的终极法则](#t-24)：敬畏市场不当死多头，留得本金在，永远有下一个大周期
 
 【推文全量数据下载指引】：
-用户问哪里下载推文数据：请告知用户在页面底部的【全量原始数据完全免费下载中心】可直接免登录下载 JSON、CSV、Markdown，或在页面顶部的 GitHub 开源仓库获取全部历史推文。`
+若用户询问推文原始数据下载：请告知用户页面底部的【全量原始数据完全免费下载中心】可直接下载 JSON、CSV、Markdown，或在 GitHub 仓库中直接拉取。`
 };
 
 let cjAiKeyIndex = Math.floor(Math.random() * CJ_AI_CONFIG.keys.length);
@@ -32572,8 +32755,14 @@ function clearCjAiChat() {
     body.innerHTML = `
         <div class="cj-msg-row assistant">
             <div class="cj-msg-bubble">
-                老铁你好！我是《憨厚的麦总 实战交易与周期投资全书》的原生内置 AI 导师。已全面通读麦总历年 5,344 篇实操推文与 24 个硬核课题。<br><br>
-无论问宏观大势、二级实战、Meme 盘面、庄家手法、美股与加密跨市场切换还是仓位纪律，问什么答什么，只讲硬逻辑与执行动作。你可以直接提问，或点击下方高频必问：
+                <div class="ai-section-badge">🤖 麦总实战 AI 导师就绪</div>
+                <p class="ai-paragraph">老铁你好！我是《憨厚的麦总 实战交易与周期投资全书》的原生内置 AI 导师。已全景灌顶麦总历年 <strong>5,344 篇实操原推</strong>、<strong>729 张实盘图表</strong> 与全书 <strong>6 大卷 24 个硬核课题</strong>。</p>
+                <div class="ai-line-gap"></div>
+                <div class="ai-quote">
+                    <div class="ai-quote-content">“二级堑壕战的本质是流动性边界与筹码博弈，没有容错率的重仓是一切爆仓的根源。”</div>
+                </div>
+                <div class="ai-line-gap"></div>
+                <p class="ai-paragraph">无论问宏观逃顶、降息剧本、美股合力、二级山寨、Meme 盘面还是仓位纪律，<strong>正面必答，精细排版，讲透逻辑</strong>。直接输入你的问题，或点击下方高频实战必问：</p>
             </div>
         </div>
         <div class="cj-ai-quick-pills" id="cjQuickPills">
@@ -32628,18 +32817,55 @@ function scrollCjAiToBottom() {
 function renderSimpleMarkdown(raw) {
     if (!raw) return '';
     let txt = raw.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    txt = txt.replace(/```([a-zA-Z0-9_-]*)\r?\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>');
-    txt = txt.replace(/`([^`]+)`/g, '<code>$1</code>');
-    txt = txt.replace(/^#{1,6}\s*(.*?)$/gm, '<strong>$1</strong>');
-    txt = txt.replace(/#{1,6}\s+/g, '');
-    txt = txt.replace(/^>\s*/gm, '');
-    txt = txt.replace(/^-{3,}$/gm, '');
+    txt = txt.replace(/```([a-zA-Z0-9_-]*)\r?\n([\s\S]*?)```/g, '<pre class="ai-pre"><code>$2</code></pre>');
+    txt = txt.replace(/`([^`]+)`/g, '<code class="ai-code">$1</code>');
     txt = txt.replace(/\*\*([^\*]+)\*\*/g, '<strong>$1</strong>');
     txt = txt.replace(/\$([^\$]+)\$/g, '$1');
-    txt = txt.replace(/\[([^\]]+)\]\((#[a-zA-Z0-9_-]+)\)/g, '<a href="$2" class="cj-ai-topic-link" onclick="handleAiTopicJump(event, \'$2\')">$1 📍</a>');
+    txt = txt.replace(/\[([^\]]+)\]\((#[a-zA-Z0-9_-]+)\)/g, '<a href="$2" class="cj-ai-topic-link" onclick="handleAiTopicJump(event, \'$2\')">📍 $1</a>');
     txt = txt.replace(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="cj-ai-ext-link">$1 ↗</a>');
-    txt = txt.replace(/\r?\n/g, '<br>');
-    return txt;
+
+    const lines = txt.split(/\r?\n/);
+    const htmlLines = [];
+
+    for (let i = 0; i < lines.length; i++) {
+        let line = lines[i].trim();
+        if (!line) {
+            htmlLines.push('<div class="ai-line-gap"></div>');
+            continue;
+        }
+        if (/^(-{3,}|_{3,}|─{3,})$/.test(line)) {
+            htmlLines.push('<hr class="ai-hr">');
+            continue;
+        }
+        const headingMatch = line.match(/^(#{1,4})\s+(.*)$/);
+        if (headingMatch) {
+            const level = headingMatch[1].length;
+            const content = headingMatch[2];
+            htmlLines.push('<div class="ai-heading ai-h' + level + '"><span class="ai-heading-pill"></span><span>' + content + '</span></div>');
+            continue;
+        }
+        if (line.startsWith('&gt;') || line.startsWith('>')) {
+            const qContent = line.replace(/^(&gt;|>)\s*/, '');
+            htmlLines.push('<div class="ai-quote"><div class="ai-quote-content">' + qContent + '</div></div>');
+            continue;
+        }
+        if (/^(📌|🔍|⚡|🛡️|💡|🎯|📊|🧭|👉)/.test(line)) {
+            htmlLines.push('<div class="ai-section-badge">' + line + '</div>');
+            continue;
+        }
+        const numMatch = line.match(/^(\d+)[\.、\)]\s+(.*)$/);
+        if (numMatch) {
+            htmlLines.push('<div class="ai-num-item"><span class="ai-num-dot">' + numMatch[1] + '</span><div class="ai-num-text">' + numMatch[2] + '</div></div>');
+            continue;
+        }
+        const bulletMatch = line.match(/^[-*•]\s+(.*)$/);
+        if (bulletMatch) {
+            htmlLines.push('<div class="ai-bullet-item"><span class="ai-bullet-icon">◆</span><div class="ai-bullet-text">' + bulletMatch[1] + '</div></div>');
+            continue;
+        }
+        htmlLines.push('<p class="ai-paragraph">' + line + '</p>');
+    }
+    return htmlLines.join('');
 }
 
 function handleAiTopicJump(event, hash) {

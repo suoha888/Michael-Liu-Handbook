@@ -32166,7 +32166,7 @@ Lam：目前看到了10个台子，18个吉祥物，算上大小写和中文。�
                 <div class="cj-ai-header-title">憨厚的麦总 AI 导师</div>
                 <div class="cj-ai-header-status">
                     <span class="cj-ai-pulse-dot"></span>
-                    <span>通读 5,344 篇实盘推文 · 15x 智能负载均衡</span>
+                    <span>通读 5,344 篇实盘推文 · 14x 智能负载均衡</span>
                 </div>
             </div>
         </div>
@@ -32507,17 +32507,25 @@ renderArchiveList();
 
 // AI Mentor Engine (Stage 4)
 const CJ_AI_CONFIG = {
-    apiUrl: 'https://api.b.ai/v1/chat/completions',
-    model: 'qwen3.8-flash',
-    enable_thinking: false,
-    temperature: 0.25,
-    maxTokens: 1000,
+    apiUrl: 'https://api.atria-asi.ai/v1/chat/completions',
+    model: 'Atria-Dawn-Preview',
+    temperature: 0.1,
+    maxTokens: 1200,
     keys: [
-        'sk-1qe8i01yxfpxogbhq36ch2nk8codwxyo',
-        'sk-1qebq6c0h27e3s4ebbkdgpbjs8pitrbh',
-        'sk-1qemk0gvw1kjcbkwkonhh59ae1t9pj5z',
-        'sk-1qehjumjalyrqqay89phhlelreus419n',
-        'sk-19oodyqpo3starzquk7zbx3tyggrl4xw'
+        'atr_4KCkb-G1ueWHh_FdvRU4dcNLaDnBHMnV',
+        'atr_M7r-GEFgLx5Ir29ZCNAp5FSSV8GSUx4d',
+        'atr_XEsZzQZ56upLNGCyGcrBeO1IamTbFsCS',
+        'atr_eLaCRAQiID8gcCIpG5ILduGyNeHqRs8z',
+        'atr_FBUVCpNZ3DRQoBSVm4fCefZt7OspUDf9',
+        'atr_nnVppYvV1n3hofvc5bEYSi8kE1a3kaJC',
+        'atr_ukvkiQ0jOsBMDXKfi0opMpLgvQO1b-ZR',
+        'atr_-TpmSHCCaJW9d5s5gGTO53eEV_nJV0Oj',
+        'atr_Rhn_JLO027LZcWMVqxZBXrFq_38qfIR2',
+        'atr_Z7elfMAJm0ToK9LmU8juIdMSh9qeUui4',
+        'atr_zUzYh2CFcpzA9ygYAZHhmUvCMXpElJUp',
+        'atr_btx_XUCZUPzvCWZph4NHv5T75-9scHKg',
+        'atr_4qdUmd7dCTVIyPkbO5k7yCLR7b1Rbz2c',
+        'atr_gdB8sYnLaEvkbrOrMGLKakbyP7fIns5P'
     ],
     systemPrompt: `你是推特顶尖交易导师与周期研报专家【憨厚的麦总】（@Michael_Liu93）的原生内置 AI 实战策略助手。基于麦总历年 5,344 篇实操推文与《实战交易与周期投资全书》6大卷 24 个硬核课题知识体系构建。
 
@@ -32774,10 +32782,22 @@ async function sendCjAiMessage() {
     aiRow.className = 'cj-msg-row assistant';
     const aiBubble = document.createElement('div');
     aiBubble.className = 'cj-msg-bubble';
-    aiBubble.innerHTML = '<span style="color: #92400E; font-size:12px;">⚡ 正在连接 5,344 篇推文实战知识库...</span>';
+    
+    // 动态状态提示（思考的时候显示模型正在思考中）
+    let searchDots = 0;
+    aiBubble.innerHTML = '<span style="color: #92400E; font-size:12.5px; display:inline-flex; align-items:center; gap:6px;"><span class="cj-ai-pulse-dot" style="background:#F59E0B; width:7px; height:7px;"></span> ⚡ 模型正在思考中...</span>';
     aiRow.appendChild(aiBubble);
     body.appendChild(aiRow);
     scrollCjAiToBottom();
+
+    const thinkTimer = setInterval(() => {
+        searchDots = (searchDots + 1) % 4;
+        const dots = '.'.repeat(searchDots);
+        const tipEl = aiBubble.querySelector('span');
+        if (tipEl && !fullAiResponse) {
+            tipEl.innerHTML = `<span class="cj-ai-pulse-dot" style="background:#F59E0B; width:7px; height:7px;"></span> ⚡ 模型正在思考中${dots}`;
+        }
+    }, 500);
 
     isCjAiGenerating = true;
     const sendBtn = document.getElementById('cjAiSendBtn');
@@ -32799,7 +32819,6 @@ async function sendCjAiMessage() {
                 body: JSON.stringify({
                     model: CJ_AI_CONFIG.model,
                     messages: cjAiHistory,
-                    enable_thinking: false,
                     stream: true,
                     temperature: CJ_AI_CONFIG.temperature,
                     max_tokens: CJ_AI_CONFIG.maxTokens
@@ -32831,7 +32850,11 @@ async function sendCjAiMessage() {
                             const chunk = JSON.parse(trimmed.slice(6));
                             const delta = chunk.choices?.[0]?.delta?.content || '';
                             if (delta) {
-                                if (isFirstChunk) { aiBubble.innerHTML = ''; isFirstChunk = false; }
+                                if (isFirstChunk) {
+                                    clearInterval(thinkTimer);
+                                    aiBubble.innerHTML = '';
+                                    isFirstChunk = false;
+                                }
                                 fullAiResponse += delta;
                                 aiBubble.innerHTML = renderSimpleMarkdown(fullAiResponse);
                                 scrollCjAiToBottom();
@@ -32842,6 +32865,7 @@ async function sendCjAiMessage() {
             }
 
             if (fullAiResponse.trim()) {
+                clearInterval(thinkTimer);
                 aiBubble.innerHTML = renderSimpleMarkdown(fullAiResponse);
                 cjAiHistory.push({ role: 'assistant', content: fullAiResponse });
                 success = true;
@@ -32851,6 +32875,8 @@ async function sendCjAiMessage() {
             console.error(`Attempt ${attempt+1} network error:`, fetchErr);
         }
     }
+
+    clearInterval(thinkTimer);
 
     if (!success) {
         aiBubble.innerHTML = '<span style="color: #B91C1C;">⚠️ 当前中转通道并发过高或网络波动，请点击重试，或直接在页面底部下载完整推文数据向本地 AI 提问。</span>';

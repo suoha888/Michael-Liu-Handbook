@@ -369,6 +369,77 @@ body { font-family: var(--font-sans); color: var(--text-main); background-color:
     100% { box-shadow: 0 0 0 0 rgba(180, 83, 9, 0); }
 }
 
+/* 侧边栏 Profile 核心统计卡片精细排版 (杜绝分层拥挤) */
+.profile-handle-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 2px;
+}
+.profile-followers-pill {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #92400E;
+    background: #FEF3C7;
+    border: 1px solid rgba(180, 83, 9, 0.25);
+    padding: 1px 7px;
+    border-radius: 10px;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+}
+.sidebar-stats-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFFFFF;
+    border: 1px solid var(--border-main);
+    border-radius: 8px;
+    padding: 10px 4px;
+    box-shadow: 0 1px 4px rgba(70, 50, 25, 0.04);
+}
+.sb-stat-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.sb-stat-num {
+    font-family: var(--font-serif);
+    font-size: 14.5px;
+    font-weight: 800;
+    color: var(--brand-amber-hover);
+    line-height: 1.15;
+    white-space: nowrap;
+}
+.sb-stat-unit {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--brand-amber);
+    margin-left: 2px;
+    font-family: var(--font-sans);
+}
+.sb-stat-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-top: 4px;
+    white-space: nowrap;
+}
+.sb-stat-divider {
+    width: 1px;
+    height: 24px;
+    background: var(--border-light);
+    flex-shrink: 0;
+}
+.hstat-unit {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--brand-amber);
+    margin-left: 2px;
+    font-family: var(--font-sans);
+}
+
 .topic-card.highlight-pulse {
     animation: warmGlowPulse 2.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
     border-color: #B45309 !important;
@@ -1050,17 +1121,30 @@ body { font-family: var(--font-sans); color: var(--text-main); background-color:
                         <span class="profile-name">憨厚的麦总</span>
                         <span class="tw-badge-gold">PRO</span>
                     </div>
-                    <div class="profile-handle">@Michael_Liu93</div>
+                    <div class="profile-handle-row">
+                        <span class="profile-handle">@Michael_Liu93</span>
+                        <span class="profile-followers-pill">88.9K 关注</span>
+                    </div>
                 </div>
             </div>
             <div class="profile-tagline">
-                Ex-VC & Banker Turned Degen, See You In The Trenches. · 5,344 篇实操推文全量公开沉淀
+                Ex-VC & Banker Turned Degen, See You In The Trenches.
             </div>
-            <div class="profile-stats-row">
-                <span>关注者 <strong>88.9K</strong></span>
-                <span>收录推文 <strong>5,344 条</strong></span>
-                <span>精选推文 <strong>1,055 篇</strong></span>
-                <span>实盘截图 <strong>729 张</strong></span>
+            <div class="sidebar-stats-card">
+                <div class="sb-stat-col">
+                    <div class="sb-stat-num">5,344<span class="sb-stat-unit">条</span></div>
+                    <div class="sb-stat-label">收录推文</div>
+                </div>
+                <div class="sb-stat-divider"></div>
+                <div class="sb-stat-col">
+                    <div class="sb-stat-num">1,055<span class="sb-stat-unit">篇</span></div>
+                    <div class="sb-stat-label">精选推文</div>
+                </div>
+                <div class="sb-stat-divider"></div>
+                <div class="sb-stat-col">
+                    <div class="sb-stat-num">729<span class="sb-stat-unit">张</span></div>
+                    <div class="sb-stat-label">实盘截图</div>
+                </div>
             </div>
         </div>
 
@@ -1351,20 +1435,20 @@ body { font-family: var(--font-sans); color: var(--text-main); background-color:
 
             <div class="hero-stats-grid">
                 <div class="hero-stat-card">
-                    <div class="hstat-num">5,344</div>
-                    <div class="hstat-label">全量收录推文 (2022-2026)</div>
+                    <div class="hstat-num">5,344<span class="hstat-unit">条</span></div>
+                    <div class="hstat-label">收录推文 (2022-2026 全景)</div>
                 </div>
                 <div class="hero-stat-card">
-                    <div class="hstat-num">1,055</div>
-                    <div class="hstat-label">硬核精选深度推文</div>
+                    <div class="hstat-num">1,055<span class="hstat-unit">篇</span></div>
+                    <div class="hstat-label">精选推文 (硬核实盘研报)</div>
                 </div>
                 <div class="hero-stat-card">
-                    <div class="hstat-num">24</div>
-                    <div class="hstat-label">深度实战核心课题</div>
+                    <div class="hstat-num">729<span class="hstat-unit">张</span></div>
+                    <div class="hstat-label">实盘截图 (高清实操图库)</div>
                 </div>
                 <div class="hero-stat-card">
-                    <div class="hstat-num">729</div>
-                    <div class="hstat-label">实盘高清配图库</div>
+                    <div class="hstat-num">24<span class="hstat-unit">讲</span></div>
+                    <div class="hstat-label">核心课题 (6大卷方法论)</div>
                 </div>
             </div>
         </header>

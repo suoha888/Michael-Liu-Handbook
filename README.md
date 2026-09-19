@@ -38,8 +38,12 @@ Michael-Liu-Handbook/
 ├── LICENSE                              # ⚖️ MIT 开源许可协议
 ├── images/                              # 🖼️ 729 张推文对应实盘高清原图库 + 头像
 ├── data/
+│   ├── michael_liu_mental_models.json   # 🧠 JEV 二次深度解构 291 篇核心思维模型 JSON 数据库
+│   ├── michael_liu_mental_models.csv    # 🧠 JEV 二次深度解构 291 行核心思维模型带 BOM CSV
 │   ├── michael_liu_featured_tweets.json # ⭐ JEV 认证 1,055 篇硬核实盘研报 JSON 数据库
 │   ├── michael_liu_featured_tweets.csv  # ⭐ JEV 认证 1,055 行硬核实盘带 BOM CSV 表格
+│   ├── michael_liu_jev_evaluated.json   # 🤖 JEV 5,344 篇全量带领域与打分 JSON 数据库
+│   ├── michael_liu_jev_evaluated.csv    # 🤖 JEV 5,344 行全量多维量化带 BOM CSV 表格
 │   ├── michael_liu_tweets.json          # 🌐 5,344 篇全量历史推文 JSON 数据库
 │   ├── michael_liu_tweets.csv           # 🌐 5,344 行全量历史带 BOM CSV 表格
 │   └── domains/                         # 🗃️ 7 大垂类开源数据湖 (JSON + 带 BOM CSV)
